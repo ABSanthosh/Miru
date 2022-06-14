@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+
+.HeaderWrapper {
+  @include box($height: 160px);
+  @include make-flex($just: space-between, $dir: row);
+  padding: 20px 35px;
+  transition: height 0.5s, width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &__left {
+    @include make-flex($dir: row);
+    gap: 25px;
+  }
+
+  &__Logo {
+    &--symbol {
+      @include box(64px);
+    }
+    &--text {
+      @include box(450px);
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.Shrink {
+  @include box($height: 75px);
+  padding: 0px 15px;
+
+  .HeaderWrapper {
+    &__Logo {
+      &--symbol {
+        @include box(30px);
+      }
+      &--text {
+        @include box(235px);
+        margin-bottom: 12px;
+      }
+    }
+
+    &__left {
+      gap: 15px;
+    }
+  }
+}
