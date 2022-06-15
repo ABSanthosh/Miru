@@ -13,7 +13,7 @@ function Eth() {
     getNBlocks(10, setBlocksList, setTransactionsList);
 
     const timeOut = setInterval(() => {
-      getNBlocks(10, setBlocksList);
+      getNBlocks(10, setBlocksList, setTransactionsList);
     }, 3 * 1000);
     setTimeout(() => {
       clearInterval(timeOut);
