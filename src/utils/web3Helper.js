@@ -11,14 +11,23 @@ const range = (start, end) => {
 };
 
 export default function getNBlocks(n, cb) {
+  let blocks = [];
+
   web3.eth.getBlockNumber().then((blockNumber) => {
-    // console.log(blockNumber);
     const blockRange = range(blockNumber - n, blockNumber);
     const batch = new web3.eth.BatchRequest();
 
     blockRange.forEach((block) => {
-      batch.add(web3.eth.getBlock.request(block, true, cb));
-      //   batch.add();
+      batch.add(
+        web3.eth.getBlock.request(block, true, (err, blockItem) => {
+          blockItem.blockNo = block;
+          blocks = [...blocks, blockItem];
+          if (blocks.length === n) {
+            blocks = blocks.reverse();
+            cb(blocks);
+          }
+        })
+      );
     });
     batch.execute();
   });
