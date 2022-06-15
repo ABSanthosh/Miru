@@ -4,7 +4,12 @@
   @include box($height: 160px);
   @include make-flex($just: space-between, $dir: row);
   padding: 20px 35px;
-  transition: height 0.5s, width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1.2s, height 0.5s,
+    width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  @include respondAt(1290px) {
+    justify-content: center;
+  }
 
   &__left {
     @include make-flex($dir: row);
@@ -14,10 +19,16 @@
   &__Logo {
     &--symbol {
       @include box(64px);
+      @include respondAt(611px) {
+        @include box(14%);
+      }
     }
     &--text {
       @include box(450px);
       margin-bottom: 24px;
+      @include respondAt(611px) {
+        @include box(84%);
+      }
     }
   }
 }
