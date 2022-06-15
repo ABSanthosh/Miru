@@ -1,0 +1,61 @@
+@import "../../styles/mixins";
+
+.TabularViewWrapper {
+  @include make-flex($align: flex-start);
+  gap: 15px;
+  &__title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 300;
+    font-size: 37px;
+    font-style: normal;
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  &__table-headCell {
+    font-family: "Martel Sans", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:first-child {
+      text-align: start;
+    }
+    &:last-child {
+      text-align: end;
+    }
+  }
+
+  &__table-cell {
+    border-bottom: 1px solid #dcdcdc;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    padding: 8px 0;
+    &:first-child {
+      text-align: start;
+    }
+    &:last-child {
+      text-align: end;
+    }
+
+    a {
+      color: #0c6cf2;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
