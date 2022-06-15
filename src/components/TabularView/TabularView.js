@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./TabularView.scss";
-import age from "../../utils/UnixTimestamp";
 
-function TabularView({ type, headers, rows, colWidth }) {
+function TabularView({ type, headers, rows, colWidth, children }) {
   return (
     <div className="TabularViewWrapper">
       <p className="TabularViewWrapper__title">{type}</p>
@@ -22,29 +21,7 @@ function TabularView({ type, headers, rows, colWidth }) {
             ))}
           </tr>
         </thead>
-        <tbody>
-          {rows.map((row, index) => {
-            return (
-              <tr
-                key={index + row.sha3Uncles}
-                className="TabularViewWrapper__table-row"
-              >
-                <td className="TabularViewWrapper__table-cell">
-                  <a href={`/block/${row.blockNo}`}>{row.blockNo}</a>
-                </td>
-                <td className="TabularViewWrapper__table-cell">
-                  {age(row.timestamp)}
-                </td>
-                <td className="TabularViewWrapper__table-cell">
-                  <a href={`/address/${row.miner}`}>{row.miner}</a>
-                </td>
-                <td className="TabularViewWrapper__table-cell">
-                  <a href={`/tx/${row.blockNo}`}>{row.transactions.length}</a>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
+        <tbody>{children}</tbody>
       </table>
     </div>
   );
@@ -54,10 +31,13 @@ TabularView.propTypes = {
   type: PropTypes.string.isRequired,
   headers: PropTypes.arrayOf(PropTypes.string),
   rows: PropTypes.arrayOf(PropTypes.object),
+  colWidth: PropTypes.arrayOf(PropTypes.string),
+  children: PropTypes.node.isRequired,
 };
 TabularView.defaultProps = {
   headers: [],
   rows: [],
+  colWidth: ["5%", "5%", "23%", "3%"],
 };
 
 export default TabularView;
