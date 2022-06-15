@@ -10,21 +10,26 @@ const range = (start, end) => {
   return result;
 };
 
-export default function getNBlocks(n, cb) {
+export function getNBlocks(n, cb, txnCb) {
   let blocks = [];
+  let transactions = [];
 
   web3.eth.getBlockNumber().then((blockNumber) => {
-    const blockRange = range(blockNumber - n, blockNumber);
+    const blockRange = range(blockNumber - n + 1, blockNumber);
     const batch = new web3.eth.BatchRequest();
 
     blockRange.forEach((block) => {
       batch.add(
         web3.eth.getBlock.request(block, true, (err, blockItem) => {
+          if (err) return console.log(err);
           blockItem.blockNo = block;
           blocks = [...blocks, blockItem];
+          transactions = [...transactions, ...blockItem.transactions];
           if (blocks.length === n) {
             blocks = blocks.reverse();
+            transactions = transactions.reverse();
             cb(blocks);
+            txnCb(transactions);
           }
         })
       );
