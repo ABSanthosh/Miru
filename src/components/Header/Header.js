@@ -4,20 +4,24 @@ import EthLogo from "../../Assets/EthLogo.png";
 import EthText from "../../Assets/EthText.png";
 import "./Header.scss";
 
-function Header({ isShrink }) {
+function Header({ isShrink, blockChain }) {
   return (
     <div className={`HeaderWrapper ${isShrink ? "Shrink" : ""}`}>
       <div className="HeaderWrapper__left">
-        <img
-          className="HeaderWrapper__Logo--symbol"
-          src={EthLogo}
-          alt="EthLogo"
-        />
-        <img
-          className="HeaderWrapper__Logo--text"
-          src={EthText}
-          alt="EthText"
-        />
+        {blockChain === "eth" && (
+          <>
+            <img
+              className="HeaderWrapper__Logo--symbol"
+              src={EthLogo}
+              alt="EthLogo"
+            />
+            <img
+              className="HeaderWrapper__Logo--text"
+              src={EthText}
+              alt="EthText"
+            />
+          </>
+        )}
       </div>
     </div>
   );
@@ -25,9 +29,11 @@ function Header({ isShrink }) {
 
 Header.propTypes = {
   isShrink: PropTypes.bool,
+  blockChain: PropTypes.string,
 };
 Header.defaultProps = {
   isShrink: false,
+  blockChain: "eth",
 };
 
 export default Header;
