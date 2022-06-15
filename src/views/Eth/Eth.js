@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Web3 from "web3";
+// import Web3 from "web3";
 import Header from "../../components/Header/Header";
 import TabularView from "../../components/TabularView/TabularView";
 import getNBlocks from "../../utils/web3Helper";
@@ -8,8 +8,8 @@ import "./Eth.scss";
 function Eth() {
   const [blocksList, setBlocksList] = useState([]);
 
-  const web3 = new Web3(Web3.givenProvider);
-  const subscription = web3.eth.subscribe("newBlockHeaders");
+  // const web3 = new Web3(Web3.givenProvider);
+  // const subscription = web3.eth.subscribe("newBlockHeaders");
 
   // subscription.on("data", async (block, error) => {
   //   console.log(block.number);
