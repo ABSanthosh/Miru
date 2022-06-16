@@ -6,8 +6,9 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/eth" component={views.Eth} />
-        <Redirect from="/" to="/eth" />
+        <Route exact path="/eth" component={views.Eth} />
+        <Route exact path="/eth/blocks" component={views.EthBlocks} />
+        <Redirect exact from="/" to="/eth" />
       </Switch>
     </BrowserRouter>
   );
