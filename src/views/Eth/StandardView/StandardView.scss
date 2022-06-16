@@ -1,0 +1,35 @@
+@import "../../../styles/mixins";
+
+.EthWrapper {
+  @include box();
+  @include make-flex($just: flex-start, $align: flex-start);
+  @include respondAt(1290px) {
+    height: unset;
+  }
+
+  padding-bottom: 20px;
+  &__container {
+    @include box();
+    @include make-flex($dir: row, $just: space-between);
+    padding: 20px 40px;
+    gap: 20px;
+
+    @include respondAt(1290px) {
+      flex-direction: column;
+    }
+
+    &--tableView {
+      @include box(50%, 80%);
+      @include respondAt(1290px) {
+        width: 695px;
+        max-width: unset;
+      }
+
+      @include respondAt(755px) {
+        width: 100%;
+      }
+      max-width: 730px;
+      // background-color: antiquewhite;
+    }
+  }
+}
