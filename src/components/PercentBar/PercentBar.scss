@@ -1,0 +1,15 @@
+@import "../../styles/mixins";
+
+.PercentBarWrapper {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background: #e5e5e5;
+  border-radius: 6px;
+
+  &__bar {
+    min-width: 1%;
+    height: 100%;
+    background: cornflowerblue;
+  }
+}
