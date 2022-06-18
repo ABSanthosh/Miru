@@ -11,7 +11,7 @@ export default function Router() {
         <Route exact path="/eth/block/:blockNumber" component={views.EthBlockDetails} />
 
         <Route exact path="/eth/transactions/:blockNumber" component={views.EthTransactionView} />
-
+        <Route exact path="/eth/address/:address" component={views.EthAddressView} />
         <Redirect exact from="/" to="/eth" />
       </Switch>
     </BrowserRouter>
