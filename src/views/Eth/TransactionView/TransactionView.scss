@@ -1,0 +1,12 @@
+@import "../../../styles/mixins";
+
+.TransactionViewWrapper {
+  &__container {
+    @include box();
+    @include make-flex($just: flex-start);
+    padding: 20px 40px;
+    gap: 20px;
+    // background-color: aliceblue;
+    overflow: auto;
+  }
+}
