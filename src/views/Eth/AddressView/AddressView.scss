@@ -1,0 +1,51 @@
+@import "../../../styles/mixins";
+
+.AddressViewWrapper {
+  &__container {
+    @include box();
+    @include make-flex($just: flex-start);
+    padding: 20px 20px 0;
+    gap: 20px;
+    // background-color: aliceblue;
+    overflow: auto;
+
+    &__header {
+      width: 100%;
+      h2 {
+        font-weight: 500;
+        font-size: 21px;
+      }
+      span {
+        font-family: "JetBrains Mono", monospace;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 1px 5px;
+      }
+    }
+
+    &__body {
+      @include make-flex($just: flex-start, $dir: row);
+      @include box();
+
+      &--left {
+        @include make-flex($just: flex-start);
+        @include box($width: 450px);
+        padding: 10px;
+      }
+      &--right {
+        @include make-flex();
+        @include box();
+        // background-color: aliceblue;
+        // padding: 10px;
+
+      }
+    }
+  }
+
+  &__panel {
+    @include box();
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
+    border-radius: 5px;
+  }
+}
