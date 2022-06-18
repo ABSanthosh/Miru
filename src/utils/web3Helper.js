@@ -37,3 +37,13 @@ export function getNBlocks(n, cb, txnCb) {
     batch.execute();
   });
 }
+
+export function getBlock(blockNo, cb, txnCb) {
+  web3.eth.getBlock(blockNo, true, (err, blockItem) => {
+    if (err) return console.log(err);
+    const txn = blockItem.transactions.reverse();
+    txnCb(txn);
+    console.log(blockItem);
+    cb(blockItem);
+  });
+}
