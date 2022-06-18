@@ -1,0 +1,12 @@
+@import "../../styles/mixins";
+
+.GraphViewWrapper {
+  @include box(98%, 97%);
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+circle {
+  r: 50px;
+}
