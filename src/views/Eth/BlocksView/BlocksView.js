@@ -44,9 +44,9 @@ function BlocksView() {
             "Gas Used",
             "Gas Limit",
             "Base Fee",
-            "Burnt Fee",
+            "🔥 Burnt Fee",
           ]}
-          colWidth={["5%", "5%", "5%", "3%", "10%", "4%", "4%", "3%", "4%"]}
+          colWidth={["4%", "2.5%", "3%", "2%", "10%", "5%", "4%", "3%", "4%"]}
         >
           {blocksList.map((row, index) => {
             return (
@@ -55,19 +55,21 @@ function BlocksView() {
                 className="TabularViewWrapper__table-row"
               >
                 <td className="TabularViewWrapper__table-cell">
-                  <a href={`/block/${row.blockNo}`}>{row.blockNo}</a>
+                  <a href={`/eth/block/${row.blockNo}`}>{row.blockNo}</a>
                 </td>
                 <td className="TabularViewWrapper__table-cell">
                   {age(row.timestamp)}
                 </td>
                 <td className="TabularViewWrapper__table-cell">
-                  <a href={`/tx/${row.blockNo}`}>{row.transactions.length}</a>
+                  <a href={`/eth/transactions/${row.blockNo}`}>
+                    {row.transactions.length}
+                  </a>
                 </td>
                 <td className="TabularViewWrapper__table-cell">
                   {row.uncles.length}
                 </td>
                 <td className="TabularViewWrapper__table-cell">
-                  <a href={`/address/${row.miner}`}>
+                  <a href={`/eth/address/${row.miner}`}>
                     {web3.utils.toAscii(row.extraData)}
                   </a>
                 </td>
