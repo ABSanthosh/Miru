@@ -1,0 +1,27 @@
+@import "../../styles/mixins";
+
+.DataCardWrapper {
+  @include box($height: 120px);
+  min-width: 185px;
+  @include make-flex($just: flex-start, $align: flex-start);
+  padding: 10px;
+  gap: 15px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.253);
+
+  &__title {
+    font-family: "Martel Sans", sans-serif;
+    font-weight: 300;
+    font-size: 23px;
+    @include box($height: auto);
+  }
+
+  &__content {
+    @include box();
+    @include make-flex($just: flex-start, $align: flex-start);
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+  }
+}
