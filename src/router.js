@@ -8,6 +8,10 @@ export default function Router() {
       <Switch>
         <Route exact path="/eth" component={views.Eth} />
         <Route exact path="/eth/blocks" component={views.EthBlocks} />
+        <Route exact path="/eth/block/:blockNumber" component={views.EthBlockDetails} />
+
+        <Route exact path="/eth/transactions/:blockNumber" component={views.EthTransactionView} />
+
         <Redirect exact from="/" to="/eth" />
       </Switch>
     </BrowserRouter>
