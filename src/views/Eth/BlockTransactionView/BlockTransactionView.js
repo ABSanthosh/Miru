@@ -14,12 +14,10 @@ function BlockTransactionView() {
 
   useEffect(() => {
     getBlock(blockNumber, setBlockData, setTxns);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const round = (num, n = 2) => {
-    const factor = 10 ** n;
-    return Math.floor(num * factor) / factor;
-  };
+
 
   return (
     <div className="BlockTransactionViewWrapper MainWrapper">

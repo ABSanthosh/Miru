@@ -8,6 +8,7 @@ import GraphView from "../../../components/GraphView/GraphView";
 function AddressView() {
   const { address } = useParams();
   const tantum = new Tantum();
+  // eslint-disable-next-line no-unused-vars
   const [addressData, setAddressData] = useState([]);
   const [d3LinkedList, setD3LinkedList] = useState([]);
   const [nodes, setNodes] = useState([]);
@@ -20,6 +21,7 @@ function AddressView() {
 
   useEffect(() => {
     tantum.getTransactions(address, setAddressData, setD3LinkedList, setNodes);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

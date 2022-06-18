@@ -13,6 +13,7 @@ function BlockDetails() {
 
   useEffect(() => {
     getBlock(blockNumber, setBlockData);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
