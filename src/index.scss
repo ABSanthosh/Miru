@@ -15,6 +15,16 @@ body {
   @include box();
 }
 
+.MainWrapper {
+  @include box();
+  @include make-flex($just: flex-start, $align: flex-start);
+  @include respondAt(1290px) {
+    height: unset;
+  }
+
+  padding-bottom: 20px;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
