@@ -6,11 +6,10 @@ import { getNBlocks, round } from "../../../utils/web3Helper";
 import "./TransactionsView.scss";
 
 function TransactionsView() {
-  const [blocksList, setBlocksList] = useState([]);
   const [transactionsList, setTransactionsList] = useState([]);
 
   useEffect(() => {
-    getNBlocks(10, setBlocksList, setTransactionsList);
+    getNBlocks(10, ()=>{}, setTransactionsList);
   }, []);
 
   return (
