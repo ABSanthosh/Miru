@@ -5,8 +5,45 @@
   background-color: white;
   border-radius: 5px;
   border: 1px solid black;
+  position: relative;
+  &__legend {
+    @include box(125px, fit-content);
+    @include make-flex($just: flex-start);
+    gap: 10px;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 5px 0 5px 0;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+
+    position: absolute;
+
+    &__item {
+      @include make-flex($just: space-between, $dir: row);
+      @include box($height: unset);
+      gap: 10px;
+    }
+    &__circle {
+      @include make-flex($just: center);
+      @include box($width: 20px, $height: 20px);
+      border-radius: 50%;
+      background-color: #f5f5f5;
+    }
+    .green {
+      background-color: #33f462;
+    }
+    .purple {
+      background-color: #f431f4;
+    }
+  }
 }
 
 circle {
   r: 50px;
+}
+
+text {
+  display: none;
 }
