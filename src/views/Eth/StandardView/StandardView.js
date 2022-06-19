@@ -41,7 +41,7 @@ function Eth() {
                   className="TabularViewWrapper__table-row"
                 >
                   <td className="TabularViewWrapper__table-cell">
-                    <a href={`/block/${row.blockNo}`}>{row.blockNo}</a>
+                    <a href={`/eth/block/${row.blockNo}`}>{row.blockNo}</a>
                   </td>
                   <td className="TabularViewWrapper__table-cell">
                     {age(row.timestamp)}
@@ -50,7 +50,7 @@ function Eth() {
                     <a href={`/eth/address/${row.miner}`}>{row.miner}</a>
                   </td>
                   <td className="TabularViewWrapper__table-cell">
-                    <a href={`/tx/${row.blockNo}`}>{row.transactions.length}</a>
+                    <a href={`/eth/transactions/${row.blockNo}`}>{row.transactions.length}</a>
                   </td>
                 </tr>
               );
@@ -72,7 +72,7 @@ function Eth() {
                 >
                   <td className="TabularViewWrapper__table-cell">{row.hash}</td>
                   <td className="TabularViewWrapper__table-cell">
-                    <a href={`/block/${row.blockNumber}`}>{row.blockNumber}</a>
+                    <a href={`/eth/block/${row.blockNumber}`}>{row.blockNumber}</a>
                   </td>
                   <td className="TabularViewWrapper__table-cell">
                     <a href={`/eth/address/${row.from}`}>{row.from}</a>

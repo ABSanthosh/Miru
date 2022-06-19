@@ -39,7 +39,7 @@ function TransactionsView() {
               >
                 <td className="TabularViewWrapper__table-cell">{row.hash}</td>
                 <td className="TabularViewWrapper__table-cell">
-                  <a href={`/block/${row.blockNumber}`}>{row.blockNumber}</a>
+                  <a href={`/eth/block/${row.blockNumber}`}>{row.blockNumber}</a>
                 </td>
                 <td className="TabularViewWrapper__table-cell">{row.type}</td>
 
