@@ -15,19 +15,11 @@ export default class Tantum {
           data.forEach((element) => {
             nodes.push(element.to + "|||To");
             nodes.push(element.from + "|||From");
-            console.log(element.from + "->" + element.to);
+            // console.log(element.from + "->" + element.to);
           });
 
           nodes = [...new Set(nodes)];
-          // console.log(nodes);
-
-          // data.forEach((element) => {
-          //   linkedList.push({
-          //     source: nodes.findIndex((item) => item === element.from),
-          //     target: nodes.findIndex((item) => item === element.to),
-          //   });
-          // });
-
+          
           data.forEach((element) => {
             linkedList.push({
               source: element.from,

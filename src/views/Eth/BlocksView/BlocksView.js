@@ -9,7 +9,10 @@ import "./BlocksView.scss";
 
 function BlocksView() {
   const [blocksList, setBlocksList] = useState([]);
-  const web3 = new Web3(Web3.givenProvider);
+
+  var provider = `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`;
+  var web3Provider = new Web3.providers.HttpProvider(provider);
+  var web3 = new Web3(web3Provider);
 
   useEffect(() => {
     getNBlocks(25, setBlocksList, (t) => {});
@@ -23,7 +26,6 @@ function BlocksView() {
     //   clearInterval(timeOut);
     // };
   }, []);
-
 
   return (
     <div className="BlocksViewWrapper">

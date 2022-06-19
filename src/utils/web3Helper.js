@@ -1,6 +1,8 @@
 import Web3 from "web3";
 
-const web3 = new Web3(Web3.givenProvider);
+var provider = `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`;
+var web3Provider = new Web3.providers.HttpProvider(provider);
+var web3 = new Web3(web3Provider);
 
 const range = (start, end) => {
   const result = [];
@@ -29,7 +31,6 @@ export function getNBlocks(n, cb, txnCb) {
             blocks = blocks.reverse();
             transactions = transactions.reverse();
             cb(blocks);
-            console.log(transactions)
             txnCb(transactions);
           }
         })
@@ -78,4 +79,3 @@ export function getStorageAt(address, position, cb) {
     cb(storage);
   });
 }
-
