@@ -4,7 +4,7 @@ import Header from "../../../components/Header/Header";
 import PercentBar from "../../../components/PercentBar/PercentBar";
 import TabularView from "../../../components/TabularView/TabularView";
 import age from "../../../utils/UnixTimestamp";
-import { getNBlocks } from "../../../utils/web3Helper";
+import { getNBlocks, round } from "../../../utils/web3Helper";
 import "./BlocksView.scss";
 
 function BlocksView() {
@@ -24,10 +24,6 @@ function BlocksView() {
     // };
   }, []);
 
-  const round = (num, n = 2) => {
-    const factor = 10 ** n;
-    return Math.floor(num * factor) / factor;
-  };
 
   return (
     <div className="BlocksViewWrapper">

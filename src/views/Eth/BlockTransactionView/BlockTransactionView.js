@@ -18,7 +18,7 @@ function BlockTransactionView() {
   }, []);
 
 
-
+ 
   return (
     <div className="BlockTransactionViewWrapper MainWrapper">
       <Header blockChain="eth" isShrink />
