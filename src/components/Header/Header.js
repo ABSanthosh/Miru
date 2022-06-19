@@ -9,7 +9,7 @@ function Header({ isShrink, blockChain }) {
     <div className={`HeaderWrapper ${isShrink ? "Shrink" : ""}`}>
       <div className="HeaderWrapper__left">
         {blockChain === "eth" && (
-          <>
+          <a href="/eth">
             <img
               className="HeaderWrapper__Logo--symbol"
               src={EthLogo}
@@ -20,7 +20,7 @@ function Header({ isShrink, blockChain }) {
               src={EthText}
               alt="EthText"
             />
-          </>
+          </a>
         )}
       </div>
     </div>
