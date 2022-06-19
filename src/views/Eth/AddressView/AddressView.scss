@@ -53,6 +53,11 @@
       @include make-flex();
     }
 
+    &--note {
+      color: rgb(166, 166, 166);
+      font-style: italic;
+    }
+
     &--data {
       @include make-flex($align: flex-start, $just: flex-start);
       @include box();

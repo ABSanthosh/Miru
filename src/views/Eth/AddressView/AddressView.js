@@ -28,9 +28,8 @@ function AddressView() {
     links: d3LinkedList,
   };
   useEffect(() => {
-    // tantum.getTransactions(address, () => {}, setD3LinkedList, setNodes);
+    tantum.getTransactions(address, () => {}, setD3LinkedList, setNodes);
 
-    tantum.getNOffsets(address, setD3LinkedList, setNodes, 5);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -165,6 +164,10 @@ function AddressView() {
                         {d3LinkedList[currentNode.index].txnType}
                       </span>
                     </div>
+                  </div>
+                  <div className="AddressViewWrapper__panel--note">
+                    Note: Displays only the first 50 transactions from the
+                    address
                   </div>
                 </div>
               )}
