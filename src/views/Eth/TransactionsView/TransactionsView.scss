@@ -1,0 +1,11 @@
+@import "../../../styles/mixins";
+
+.TransactionsViewWrapper {
+  &__container {
+    @include box();
+    @include make-flex($just: flex-start);
+    padding: 20px 40px;
+    gap: 20px;
+    overflow: auto;
+  }
+}
