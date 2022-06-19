@@ -1,9 +1,6 @@
 export default class Tantum {
-  getTransactions(Address, cb, llCb, nodeCb) {
-    var url =
-      "https://api-eu1.tatum.io/v3/ethereum/account/transaction/" +
-      Address +
-      "?pageSize=50&sort=DESC";
+  getTransactions(Address, cb, llCb, nodeCb, offset = 0) {
+    var url = `https://api-eu1.tatum.io/v3/ethereum/account/transaction/${Address}?pageSize=50&sort=DESC&offset=${offset}`;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     xhr.setRequestHeader("x-api-key", process.env.REACT_APP_API_KEY);
@@ -13,13 +10,16 @@ export default class Tantum {
           let linkedList = [];
           let nodes = [];
           let data = JSON.parse(xhr.responseText);
+          console.log(data);
 
           data.forEach((element) => {
             nodes.push(element.to + "|||To");
             nodes.push(element.from + "|||From");
+            console.log(element.from + "->" + element.to);
           });
 
           nodes = [...new Set(nodes)];
+          // console.log(nodes);
 
           // data.forEach((element) => {
           //   linkedList.push({
@@ -27,17 +27,26 @@ export default class Tantum {
           //     target: nodes.findIndex((item) => item === element.to),
           //   });
           // });
+
           data.forEach((element) => {
             linkedList.push({
               source: element.from,
               target: element.to,
               show: true,
-              // value: element.blockNumber,
+              sentAmt: element.value,
+              txnType: element.type,
+              gas: element.gas,
+              gasPrice: element.gasPrice,
+              nonce: element.nonce,
+              blockNumber: element.blockNumber,
+              txnStatus: element.status,
+              txnHash: element.transactionHash,
+              txnPosition: element.transactionIndex,
             });
           });
+
           let finalNodeList = nodes.map((item) => ({
             id: item.split("|||")[0],
-            showChildren: true,
             show: true,
             group: item.split("|||")[1] === "To" ? 1 : 2,
           }));
@@ -45,7 +54,7 @@ export default class Tantum {
           llCb(linkedList);
           nodeCb(finalNodeList);
           cb(data);
-          console.log(data);
+          // console.log(linkedList);
           // console.log(finalNodeList);
         }
       }
