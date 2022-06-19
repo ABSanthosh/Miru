@@ -12,8 +12,10 @@
   }
 
   &__left {
-    @include make-flex($dir: row);
-    gap: 25px;
+    a {
+      @include make-flex($dir: row);
+      gap: 25px;
+    }
   }
 
   &__Logo {

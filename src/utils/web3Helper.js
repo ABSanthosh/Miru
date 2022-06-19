@@ -29,6 +29,7 @@ export function getNBlocks(n, cb, txnCb) {
             blocks = blocks.reverse();
             transactions = transactions.reverse();
             cb(blocks);
+            console.log(transactions)
             txnCb(transactions);
           }
         })
@@ -37,6 +38,11 @@ export function getNBlocks(n, cb, txnCb) {
     batch.execute();
   });
 }
+
+export const round = (num, n = 2) => {
+  const factor = 10 ** n;
+  return Math.floor(num * factor) / factor;
+};
 
 export function getBlock(blockNo, cb, txnCb) {
   web3.eth.getBlock(blockNo, true, (err, blockItem) => {
@@ -47,3 +53,29 @@ export function getBlock(blockNo, cb, txnCb) {
     cb(blockItem);
   });
 }
+
+export function getBalance(address, cb) {
+  web3.eth.getBalance(address, (err, balance) => {
+    if (err) return console.log(err);
+    const bal = {
+      balance: balance,
+      ether: round(web3.utils.fromWei(balance, "ether"), 3),
+    };
+    cb(bal);
+  });
+}
+
+export function getTransactionCount(address, cb) {
+  web3.eth.getTransactionCount(address, (err, count) => {
+    if (err) return console.log(err);
+    cb(count);
+  });
+}
+
+export function getStorageAt(address, position, cb) {
+  web3.eth.getStorageAt(address, position, (err, storage) => {
+    if (err) return console.log(err);
+    cb(storage);
+  });
+}
+

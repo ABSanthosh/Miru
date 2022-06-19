@@ -8,6 +8,4 @@ export { default as EthTransactionView } from "./Eth/BlockTransactionView/BlockT
 export { default as EthAddressView } from "./Eth/AddressView/AddressView";
 export { default as EthTransactionsView } from "./Eth/TransactionsView/TransactionsView";
 
-// TODO: View Transactions route
-// TODO: Address panel data
 // TODO: Find and fix errors in to and from data of address transactions
