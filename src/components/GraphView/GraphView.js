@@ -24,12 +24,6 @@ function GraphView({ data, setCurrentNode }) {
         colorFunction={(node) =>
           ({ 1: "#33f462", 2: "#f431f4", 3: "purple" }[node.group])
         }
-        showLabelOnHover={{
-          id: "ID-modified",
-          group: "Type",
-        }}
-        // connectionStrength={0.01}
-        fillType="White"
       />
     </div>
   );
