@@ -29,15 +29,14 @@
 
       &--left {
         @include make-flex($just: flex-start);
-        @include box($width: 450px);
+        @include box($width: 21%);
         padding: 10px;
       }
       &--right {
         @include make-flex();
-        @include box();
+        @include box($width: 79%);
         // background-color: aliceblue;
         // padding: 10px;
-
       }
     }
   }
@@ -47,5 +46,66 @@
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
     border-radius: 5px;
+    padding: 15px;
+
+    &--tempBox {
+      @include box();
+      @include make-flex();
+    }
+
+    &--data {
+      @include make-flex($align: flex-start, $just: flex-start);
+      @include box();
+      gap: 10px;
+
+      &__header {
+        h3 {
+          width: 100%;
+          font-weight: 500;
+          font-size: 22px;
+          font-family: "Nunito", sans-serif;
+        }
+      }
+
+      &__content {
+        @include box($height: auto);
+        @include make-flex($just: flex-start);
+        gap: 10px;
+        &__row {
+          font-size: 18px;
+          width: 100%;
+          @include make-flex($dir: row, $just: space-between);
+          gap: 10px;
+          span {
+          }
+          span.digits {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 17px;
+            white-space: nowrap;
+            max-width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 5;
+
+            &:hover {
+              overflow: visible;
+            }
+
+            &:hover span {
+              position: relative;
+              background-color: white;
+
+              box-shadow: 0 0 4px 0 black;
+              padding: 1px 4px;
+              border-radius: 3px;
+            }
+          }
+
+          span.label {
+            font-size: 17px;
+          }
+        }
+      }
+    }
   }
 }
