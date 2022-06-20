@@ -7,5 +7,3 @@ export { default as EthBlockDetails } from "./Eth/BlockDetails/BlockDetails";
 export { default as EthTransactionView } from "./Eth/BlockTransactionView/BlockTransactionView";
 export { default as EthAddressView } from "./Eth/AddressView/AddressView";
 export { default as EthTransactionsView } from "./Eth/TransactionsView/TransactionsView";
-
-// TODO: Find and fix errors in to and from data of address transactions

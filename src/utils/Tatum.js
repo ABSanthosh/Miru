@@ -10,7 +10,7 @@ export default class Tantum {
           let linkedList = [];
           let nodes = [];
           let data = JSON.parse(xhr.responseText);
-          console.log(data);
+          // console.log(data);
 
           data.forEach((element) => {
             nodes.push(element.to + "|||To");
