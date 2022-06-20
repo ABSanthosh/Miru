@@ -33,6 +33,8 @@ function Eth() {
             headers={["Block", "Age", "Miner", "Txn"]}
             colWidth={["5%", "5%", "23%", "3%"]}
             viewMore={`/eth/blocks`}
+            data={blocksList}
+            rowCount={10}
           >
             {blocksList.map((row, index) => {
               return (
@@ -63,6 +65,8 @@ function Eth() {
             headers={["Hash", "Block", "From", "", "To"]}
             colWidth={["10%", "10%", "18%", "3%", "18%"]}
             viewMore={`/eth/txn`}
+            data={transactionsList}
+            rowCount={10}
           >
             {transactionsList.slice(0, 10).map((row, index) => {
               return (

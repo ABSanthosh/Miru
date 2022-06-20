@@ -9,7 +9,7 @@ function TransactionsView() {
   const [transactionsList, setTransactionsList] = useState([]);
 
   useEffect(() => {
-    getNBlocks(10, ()=>{}, setTransactionsList);
+    getNBlocks(10, () => {}, setTransactionsList);
   }, []);
 
   return (
@@ -29,6 +29,8 @@ function TransactionsView() {
             "Txn Fee",
           ]}
           colWidth={["10%", "10%", "5%", "18%", "3%", "18%", "8%", "5%"]}
+          data={transactionsList}
+          rowCount={100}
         >
           {transactionsList.splice(0, 100).map((row, index) => {
             return (
@@ -38,7 +40,9 @@ function TransactionsView() {
               >
                 <td className="TabularViewWrapper__table-cell">{row.hash}</td>
                 <td className="TabularViewWrapper__table-cell">
-                  <a href={`/eth/block/${row.blockNumber}`}>{row.blockNumber}</a>
+                  <a href={`/eth/block/${row.blockNumber}`}>
+                    {row.blockNumber}
+                  </a>
                 </td>
                 <td className="TabularViewWrapper__table-cell">{row.type}</td>
 

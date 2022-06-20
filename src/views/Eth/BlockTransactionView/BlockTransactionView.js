@@ -14,11 +14,9 @@ function BlockTransactionView() {
 
   useEffect(() => {
     getBlock(blockNumber, setBlockData, setTxns);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
- 
   return (
     <div className="BlockTransactionViewWrapper MainWrapper">
       <Header blockChain="eth" isShrink />
@@ -36,6 +34,8 @@ function BlockTransactionView() {
             "Txn Fee",
           ]}
           colWidth={["4%", "4%", "4%", "7%", "2%", "7%", "5%", "3%"]}
+          data={txns}
+          rowCount={100}
         >
           {txns.map((row, index) => {
             return (

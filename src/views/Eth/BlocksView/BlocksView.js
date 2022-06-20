@@ -46,6 +46,8 @@ function BlocksView() {
             "🔥 Burnt Fee",
           ]}
           colWidth={["4%", "2.5%", "3%", "2%", "10%", "5%", "4%", "3%", "4%"]}
+          data={blocksList}
+          rowCount={25}
         >
           {blocksList.map((row, index) => {
             return (
@@ -74,7 +76,16 @@ function BlocksView() {
                 </td>
                 <td className="TabularViewWrapper__table-cell">
                   <div>
-                    {Math.round((row.gasUsed / row.gasLimit) * 100)}%
+                    {Math.round((row.gasUsed / row.gasLimit) * 100)}%&nbsp;
+                    <span
+                      style={{
+                        fontSize: "14px",
+                        color: "#999999",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      ({row.gasUsed})
+                    </span>
                     <PercentBar
                       percent={Math.round((row.gasUsed / row.gasLimit) * 100)}
                       color={getColor(row.gasUsed / row.gasLimit)}
