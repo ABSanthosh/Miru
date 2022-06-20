@@ -3,6 +3,7 @@ import Web3 from "web3";
 import Header from "../../../components/Header/Header";
 import PercentBar from "../../../components/PercentBar/PercentBar";
 import TabularView from "../../../components/TabularView/TabularView";
+import getColor from "../../../utils/PercentToColor";
 import age from "../../../utils/UnixTimestamp";
 import { getNBlocks, round } from "../../../utils/web3Helper";
 import "./BlocksView.scss";
@@ -76,6 +77,7 @@ function BlocksView() {
                     {Math.round((row.gasUsed / row.gasLimit) * 100)}%
                     <PercentBar
                       percent={Math.round((row.gasUsed / row.gasLimit) * 100)}
+                      color={getColor(row.gasUsed / row.gasLimit)}
                     />
                   </div>
                 </td>

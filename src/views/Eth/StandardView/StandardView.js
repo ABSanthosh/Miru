@@ -12,15 +12,15 @@ function Eth() {
   useEffect(() => {
     getNBlocks(10, setBlocksList, setTransactionsList);
 
-    const timeOut = setInterval(() => {
-      getNBlocks(10, setBlocksList, setTransactionsList);
-    }, 3 * 1000);
-    setTimeout(() => {
-      clearInterval(timeOut);
-    }, 12 * 60 * 1000);
-    return () => {
-      clearInterval(timeOut);
-    };
+    // const timeOut = setInterval(() => {
+    //   getNBlocks(10, setBlocksList, setTransactionsList);
+    // }, 3 * 1000);
+    // setTimeout(() => {
+    //   clearInterval(timeOut);
+    // }, 12 * 60 * 1000);
+    // return () => {
+    //   clearInterval(timeOut);
+    // };
   }, []);
 
   return (
