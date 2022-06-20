@@ -1,27 +1,69 @@
 @import "../../styles/mixins";
 
 .DataCardWrapper {
-  @include box($height: 120px);
+  @include box(fit-content, 120px);
   min-width: 185px;
   @include make-flex($just: flex-start, $align: flex-start);
   padding: 10px;
   gap: 15px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.253);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.158);
+  flex-grow: 1;
+  position: relative;
 
+  a {
+    color: #0c6cf2;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   &__title {
     font-family: "Martel Sans", sans-serif;
     font-weight: 300;
-    font-size: 23px;
+    font-size: 14px;
     @include box($height: auto);
   }
 
   &__content {
     @include box();
-    @include make-flex($just: flex-start, $align: flex-start);
+    @include make-flex();
 
     font-family: "JetBrains Mono", monospace;
-    font-size: 17px;
+    font-size: 25px;
+  }
+  &__help {
+    content: url("../../Assets/question-mark.png");
+    @include box(19px, 19px);
+    opacity: 0.5;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: help;
+    z-index: 3;
+    background-color: white;
+
+    &:hover + span {
+      display: block;
+    }
+  }
+  &__toolTip {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    @include box();
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    color: rgb(91, 91, 91);
+    transition: all 0.3s ease-in-out;
+    p {
+      @include box();
+      @include make-flex();
+    }
   }
 }
