@@ -47,15 +47,23 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
     border-radius: 5px;
     padding: 15px;
-
+    position: relative;
+    
     &--tempBox {
       @include box();
       @include make-flex();
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     &--note {
       color: rgb(166, 166, 166);
       font-style: italic;
+      @include box();
+      text-align: center;
+      @include make-flex($just: flex-end);
+      z-index: 2;
     }
 
     &--data {

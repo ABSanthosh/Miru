@@ -61,9 +61,15 @@ function AddressView() {
           <div className="AddressViewWrapper__container__body--left">
             <div className="AddressViewWrapper__panel">
               {currentNode === null ? (
-                <p className="AddressViewWrapper__panel--tempBox">
-                  Click on a node to view Details
-                </p>
+                <>
+                  <p className="AddressViewWrapper__panel--tempBox">
+                    Click on a node to view Details
+                  </p>
+                  <div className="AddressViewWrapper__panel--note">
+                    Note: Displays only the first 50 transactions from the
+                    address
+                  </div>
+                </>
               ) : (
                 <div className="AddressViewWrapper__panel--data">
                   <div className="AddressViewWrapper__panel--data__header">
